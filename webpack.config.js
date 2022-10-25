@@ -20,7 +20,7 @@ module.exports = {
     filename: 'assets/js/main.js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'assets/[name][ext]',
-/*     clean: true, */
+    clean: process.env.NODE_ENV === "production",
   },
   module: {
     rules: [
