@@ -1,0 +1,32 @@
+@use './colors';
+@use './spacings' as s;
+
+
+h1 {
+  color: red;
+  font-size: s.$l;
+}
+
+h2 {
+  color: colors.$text-1;
+  font-size: s.$m;
+}
+
+h3 {
+  color: red;
+  font-size: s.$normal;
+}
+
+h4 {
+  color: blueviolet;
+  font-size: 1.8rem;
+}
+
+p {
+  color: colors.$text-1;
+  font-size: s.$normal;
+}
+
+p.secondary {
+  font-size: s.$s;
+}

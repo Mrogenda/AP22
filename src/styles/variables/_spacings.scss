@@ -1,0 +1,82 @@
+html {
+  font-size: 62.5%;
+}
+
+$border: .3rem;
+
+$xs: .4rem;
+$s: .8rem;
+$normal: 1.6rem;
+$m: 2.4rem;
+$l: 3.2rem;
+$xl: 4.0rem;
+$xxl: 5.2rem;
+$xxl: 8.4rem;
+
+$margin-desktop: 5rem;
+$margin-mobile: 3rem;
+
+$gap: .5rem;
+
+
+// Media-Queries ------------------------------
+
+// minimum
+
+$screen-m-min: 650px;
+
+// Tablets and small desktops
+$screen-lg-min: 950px;
+
+// Large tablets and desktops
+$screen-xl-min: 125.1rem;
+
+
+@mixin m {
+    @media (min-width: #{$screen-m-min}) {
+        @content;
+    }
+}
+
+// Large devices
+@mixin lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+}
+
+ // Extra large devices
+@mixin xl {
+    @media (min-width: #{$screen-xl-min}) {
+        @content;
+    }
+}
+
+/* use of mixins:
+    @include lg {
+    ......
+}
+*/
+
+// Grid & Flex ------------------------------
+
+@mixin flex {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: $space;
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 15% 70% 15%;
+}
+
+
+/*body {
+  @include flex;
+  @include grid;
+}*/
+
+
