@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 const env = process.env.NODE_ENV || 'development';
 
@@ -20,7 +21,7 @@ module.exports = {
     filename: 'assets/js/main.js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'assets/[name][ext]',
-    clean: process.env.NODE_ENV === "production",
+    clean: env === "production",
   },
   module: {
     rules: [
@@ -37,7 +38,7 @@ module.exports = {
       use: ["html-loader"]
     },
     {
-      test: /\.(jpe?g|png|gif)$/i,
+      test: /\.(jpe?g|png|gif|webp)$/i,
       type: 'asset/resource',
       generator: {
         filename: 'assets/images/[name][ext]',
@@ -59,6 +60,28 @@ module.exports = {
       },
     },
     ]
+  },
+  optimization: {
+    minimizer: [
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.sharpMinify,
+        },
+        generator: [
+          {
+            preset: "webp",
+            implementation: ImageMinimizerPlugin.sharpGenerate,
+            options: {
+              encodeOptions: {
+                webp: {
+                  quality: 90,
+                },
+              },
+            },
+          },
+        ],
+      }),
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
