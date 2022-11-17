@@ -2,30 +2,35 @@
 
 Marie Mrogenda
 
-## Technische Umsetzung:
+## Technische Umsetzung
 
-### Verwendeter Browser:
+### Verwendeter Browser
 
 - Google Chrome Version 106.0.5249.103 (Offizieller Build) (arm64)
 
-### Verwendete Hardware:
+### Verwendete Hardware
 
 - MacBook Pro (14", 2021) M1
 - Iphone 12pro IOS 15.6.1
 
-### Verwendete Tools:
+### Verwendete Tools
 
 - Bundler: Webpack
+  - ImageMinimizerPlugin um Bilder im Build für die Production zu minifizieren
+  - HtmlWebpackPlugin (auch um html zu minifizieren und validieren)
+  - MiniCssExtractPlugin
+
 - IDE: Visual Studio Code
-- Css Compiler: Scss
 
-## Inhaltliche Umsetzung:
+- Css: Scss
 
-### Textkorrekturen:
+## Inhaltliche Umsetzung
 
-## Gestalterische Umsetzung:
+### Textkorrekturen
 
-### Verwendete Tools:
+## Gestalterische Umsetzung
+
+### Verwendete Programme
 
 - Adobe Illustrator
 - Adobe Photoshop
