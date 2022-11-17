@@ -55,9 +55,6 @@ module.exports = {
   optimization: {
     minimizer: [
       new ImageMinimizerPlugin({
-        minimizer: {
-          implementation: ImageMinimizerPlugin.sharpMinify,
-        },
         generator: [
           {
             preset: "webp",

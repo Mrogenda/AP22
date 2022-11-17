@@ -5,15 +5,6 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 const env = process.env.NODE_ENV || "development";
 
-let htmlPageNames = ["template", "seite2"];
-let multipleHtmlPlugins = htmlPageNames.map((name) => {
-  return new HtmlWebpackPlugin({
-    template: `./src/${name}.html`, // relative path to the HTML files
-    filename: `${name}.html`, // output HTML files
-    chunks: ["main"], // respective JS files
-  });
-});
-
 module.exports = {
   mode: env,
   entry: "./src/js/index.js",
@@ -64,9 +55,6 @@ module.exports = {
   optimization: {
     minimizer: [
       new ImageMinimizerPlugin({
-        minimizer: {
-          implementation: ImageMinimizerPlugin.sharpMinify,
-        },
         generator: [
           {
             preset: "webp",
@@ -87,11 +75,13 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "assets/css/[name].css",
     }),
-    new HtmlWebpackPlugin({
-      template: "src/index.html",
-      inject: true,
-      filename: "index.html",
-      chunks: ["main"],
+    ...["index", "seite2"].map((pageName) => {
+      return new HtmlWebpackPlugin({
+        template: `src/${pageName}.html`,
+        inject: true,
+        filename: `${pageName}.html`,
+        chunks: ["main"],
+      });
     }),
-  ].concat(multipleHtmlPlugins),
+  ],
 };

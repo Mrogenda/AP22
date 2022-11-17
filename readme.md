@@ -16,7 +16,9 @@ Marie Mrogenda
 ### Verwendete Tools
 
 - Bundler: Webpack
+
   - ImageMinimizerPlugin um Bilder im Build für die Production zu minifizieren
+  - Sharp um Bilder in webP umzuwandeln
   - HtmlWebpackPlugin (auch um html zu minifizieren und validieren)
   - MiniCssExtractPlugin
 
@@ -36,3 +38,4 @@ Marie Mrogenda
 - Adobe Photoshop
 - Adobe Lightroom
 - Adobe Figma
+- https://squoosh.app/
